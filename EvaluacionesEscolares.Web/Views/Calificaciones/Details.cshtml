@@ -1,0 +1,73 @@
+﻿@model EvaluacionesEscolares.Web.ViewModels.CalificacionViewModel
+@{
+    ViewData["Title"] = "Detalles de Calificación";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Detalles de Calificación</h1>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">
+            <i class="bi bi-pencil"></i> Editar
+        </a>
+        <a asp-action="Index" class="btn btn-secondary">
+            <i class="bi bi-arrow-left"></i> Volver
+        </a>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">Información de la Calificación</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <dl class="row">
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.EstudianteNombre)</dt>
+                    <dd class="col-sm-8">
+                        <a asp-controller="Estudiantes" asp-action="Details" asp-route-id="@Model.EstudianteId">
+                            @Html.DisplayFor(model => model.EstudianteNombre)
+                        </a>
+                    </dd>
+
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ExamenTitulo)</dt>
+                    <dd class="col-sm-8">
+                        <a asp-controller="Examenes" asp-action="Details" asp-route-id="@Model.ExamenId">
+                            @Html.DisplayFor(model => model.ExamenTitulo)
+                        </a>
+                    </dd>
+
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.MateriaNombre)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.MateriaNombre)</dd>
+                </dl>
+            </div>
+            <div class="col-md-6">
+                <dl class="row">
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Nota)</dt>
+                    <dd class="col-sm-8">
+                        <span class="badge @(Model.Nota >= 70 ? "bg-success" : (Model.Nota >= 60 ? "bg-warning" : "bg-danger")) p-2">
+                            @Model.Nota.ToString("N2")
+                        </span>
+                    </dd>
+
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.FechaRegistro)</dt>
+                    <dd class="col-sm-8">@Model.FechaRegistro.ToString("dd/MM/yyyy HH:mm")</dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <h6>@Html.DisplayNameFor(model => model.Comentarios)</h6>
+            <div class="border p-3 rounded bg-light">
+                @if (!string.IsNullOrEmpty(Model.Comentarios))
+                {
+                    <p>@Html.DisplayFor(model => model.Comentarios)</p>
+                }
+                else
+                {
+                    <p class="text-muted">No hay comentarios registrados.</p>
+                }
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EvaluacionesEscolares.API\EvaluacionesEscolares.API.csproj" />
+    <ProjectReference Include="..\EvaluacionesEscolares.Core\EvaluacionesEscolares.Core.csproj" />
+    <ProjectReference Include="..\EvaluacionesEscolares.Data\EvaluacionesEscolares.Data.csproj" />
+    <ProjectReference Include="..\EvaluacionesEscolares.Entities\EvaluacionesEscolares.Entities.csproj" />
+  </ItemGroup>
+
+</Project>

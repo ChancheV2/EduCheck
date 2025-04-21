@@ -1,0 +1,68 @@
+﻿@model IEnumerable<EvaluacionesEscolares.Web.ViewModels.CalificacionViewModel>
+@{
+    ViewData["Title"] = "Calificaciones";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Calificaciones</h1>
+    <a asp-action="Create" class="btn btn-primary">
+        <i class="bi bi-plus-circle"></i> Nueva Calificación
+    </a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        @if (Model.Any())
+        {
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.EstudianteNombre)</th>
+                            <th>@Html.DisplayNameFor(model => model.ExamenTitulo)</th>
+                            <th>@Html.DisplayNameFor(model => model.MateriaNombre)</th>
+                            <th>@Html.DisplayNameFor(model => model.Nota)</th>
+                            <th>@Html.DisplayNameFor(model => model.FechaRegistro)</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.EstudianteNombre)</td>
+                                <td>@Html.DisplayFor(modelItem => item.ExamenTitulo)</td>
+                                <td>@Html.DisplayFor(modelItem => item.MateriaNombre)</td>
+                                <td>
+                                    <span class="badge @(item.Nota >= 70 ? "bg-success" : (item.Nota >= 60 ? "bg-warning" : "bg-danger"))">
+                                        @item.Nota.ToString("N2")
+                                    </span>
+                                </td>
+                                <td>@item.FechaRegistro.ToString("dd/MM/yyyy")</td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">
+                                            <i class="bi bi-eye"></i>
+                                        </a>
+                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">
+                                            <i class="bi bi-pencil"></i>
+                                        </a>
+                                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">
+                                            <i class="bi bi-trash"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-info">
+                No hay calificaciones registradas. <a asp-action="Create">Crear una nueva calificación</a>.
+            </div>
+        }
+    </div>
+</div>

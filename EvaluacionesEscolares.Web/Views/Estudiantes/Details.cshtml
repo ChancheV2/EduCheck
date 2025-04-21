@@ -1,0 +1,50 @@
+﻿public async Task<IActionResult>
+    Details(int id)
+    {
+    try
+    {
+    var estudiante = await _estudianteService.GetEstudianteConCalificacionesAsync(id);
+    if (estudiante == null)
+    {
+    return NotFound();
+    }
+
+    var promedios = await _calificacionService.GetPromediosPorMateriaAsync(id);
+    var promedioGeneral = await _calificacionService.GetPromedioGeneralAsync(id);
+
+    ViewBag.Promedios = promedios;
+    ViewBag.PromedioGeneral = promedioGeneral;
+
+    var viewModel = new EstudianteViewModel
+    {
+    Id = estudiante.Id,
+    Nombre = estudiante.Nombre,
+    Apellido = estudiante.Apellido,
+    Matricula = estudiante.Matricula,
+    Email = estudiante.Email,
+    FechaNacimiento = estudiante.FechaNacimiento,
+    // Asignar las calificaciones al modelo
+    Calificaciones = estudiante.Calificaciones?.Select(c => new CalificacionViewModel
+    {
+    Id = c.Id,
+    EstudianteId = c.EstudianteId,
+    EstudianteNombre = $"{estudiante.Nombre} {estudiante.Apellido}",
+    ExamenId = c.ExamenId,
+    ExamenTitulo = c.Examen?.Titulo,
+    MateriaNombre = c.Examen?.Materia?.Nombre,
+    Nota = c.Nota,
+    FechaRegistro = c.FechaRegistro,
+    Comentarios = c.Comentarios
+    }).ToList() ?? new List<CalificacionViewModel>
+        ()
+        };
+
+        return View(viewModel);
+        }
+        catch (Exception ex)
+        {
+        _logger.LogError(ex, "Error al obtener los detalles del estudiante");
+        TempData["Error"] = "Ocurrió un error al cargar los detalles del estudiante.";
+        return RedirectToAction(nameof(Index));
+        }
+        }

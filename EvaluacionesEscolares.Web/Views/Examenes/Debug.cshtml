@@ -1,0 +1,81 @@
+﻿@model EvaluacionesEscolares.Web.Controllers.DebugViewModel
+@{
+    ViewData["Title"] = "Diagnóstico del Sistema";
+}
+
+<h1>Diagnóstico del Sistema</h1>
+
+<div class="alert alert-info">
+    <p>Esta página muestra información de diagnóstico para ayudar a solucionar problemas.</p>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header bg-primary text-white">
+        <h5 class="card-title mb-0">Información de la Base de Datos</h5>
+    </div>
+    <div class="card-body">
+        <p><strong>Cadena de Conexión:</strong> <code>@(Model.ConnectionString?.Replace("Password=", "Password=*****") ?? "No disponible")</code></p>
+        <p><strong>Número de Materias:</strong> @Model.MateriasCount</p>
+        <p><strong>Número de Exámenes:</strong> @Model.ExamenesCount</p>
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header bg-success text-white">
+        <h5 class="card-title mb-0">Materias Disponibles</h5>
+    </div>
+    <div class="card-body">
+        @if (Model.Materias != null && Model.Materias.Any())
+        {
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var materia in Model.Materias)
+                    {
+                        <tr>
+                            <td>@materia.Id</td>
+                            <td>@materia.Nombre</td>
+                            <td>@materia.Descripcion</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div class="alert alert-warning">
+                No hay materias disponibles en la base de datos.
+            </div>
+        }
+    </div>
+</div>
+
+<div class="card mt-4">
+    <div class="card-header bg-warning">
+        <h5 class="card-title mb-0">Pruebas de Diagnóstico</h5>
+    </div>
+    <div class="card-body">
+        <p>Utiliza estos botones para realizar pruebas de diagnóstico directas en la base de datos:</p>
+
+        <a asp-action="TestCreateDirect" class="btn btn-warning">
+            <i class="bi bi-database"></i> Crear Examen Directamente
+        </a>
+
+        <p class="mt-3 text-muted">
+            <small>
+                Esto intentará crear un examen directamente usando el contexto de la base de datos,
+                sin pasar por el servicio o repositorio.
+            </small>
+        </p>
+    </div>
+</div>
+
+<div class="mt-4">
+    <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
+</div>

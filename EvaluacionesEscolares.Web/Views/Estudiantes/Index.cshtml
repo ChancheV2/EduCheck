@@ -1,0 +1,62 @@
+﻿@model IEnumerable<EvaluacionesEscolares.Web.ViewModels.EstudianteViewModel>
+@{
+    ViewData["Title"] = "Estudiantes";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Estudiantes</h1>
+    <a asp-action="Create" class="btn btn-primary">
+        <i class="bi bi-plus-circle"></i> Nuevo Estudiante
+    </a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        @if (Model.Any())
+        {
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Matricula)</th>
+                            <th>@Html.DisplayNameFor(model => model.NombreCompleto)</th>
+                            <th>@Html.DisplayNameFor(model => model.Email)</th>
+                            <th>@Html.DisplayNameFor(model => model.FechaNacimiento)</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Matricula)</td>
+                                <td>@Html.DisplayFor(modelItem => item.NombreCompleto)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                                <td>@item.FechaNacimiento.ToString("dd/MM/yyyy")</td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">
+                                            <i class="bi bi-eye"></i>
+                                        </a>
+                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">
+                                            <i class="bi bi-pencil"></i>
+                                        </a>
+                                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">
+                                            <i class="bi bi-trash"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-info">
+                No hay estudiantes registrados. <a asp-action="Create">Crear un nuevo estudiante</a>.
+            </div>
+        }
+    </div>
+</div>

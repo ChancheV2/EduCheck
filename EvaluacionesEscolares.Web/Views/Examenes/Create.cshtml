@@ -1,0 +1,72 @@
+﻿@model EvaluacionesEscolares.Web.ViewModels.ExamenViewModel
+@{
+    ViewData["Title"] = "Crear Examen";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Crear Examen</h1>
+    <a asp-action="Index" class="btn btn-secondary">
+        <i class="bi bi-arrow-left"></i> Volver
+    </a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label asp-for="Titulo" class="control-label"></label>
+                        <input asp-for="Titulo" class="form-control" />
+                        <span asp-validation-for="Titulo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label asp-for="MateriaId" class="control-label">Materia</label>
+                        <select asp-for="MateriaId" class="form-select" asp-items="ViewBag.Materias">
+                            <option value="">-- Seleccione una materia --</option>
+                        </select>
+                        <span asp-validation-for="MateriaId" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Descripcion" class="control-label"></label>
+                <textarea asp-for="Descripcion" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Duracion" class="control-label"></label>
+                <div class="input-group">
+                    <input asp-for="Duracion" class="form-control" />
+                    <span class="input-group-text">minutos</span>
+                </div>
+                <span asp-validation-for="Duracion" class="text-danger"></span>
+            </div>
+
+            <div class="alert alert-info">
+                <i class="bi bi-info-circle"></i> Después de crear el examen, podrá agregar preguntas y opciones.
+            </div>
+
+            <div class="form-group mt-4">
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-save"></i> Guardar
+                </button>
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="bi bi-x-circle"></i> Cancelar
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

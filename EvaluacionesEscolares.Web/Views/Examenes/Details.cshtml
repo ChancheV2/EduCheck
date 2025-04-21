@@ -1,0 +1,115 @@
+﻿@model EvaluacionesEscolares.Web.ViewModels.ExamenViewModel
+@{
+    ViewData["Title"] = "Detalles del Examen";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Detalles del Examen</h1>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">
+            <i class="bi bi-pencil"></i> Editar
+        </a>
+        <a asp-action="Index" class="btn btn-secondary">
+            <i class="bi bi-arrow-left"></i> Volver
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Información del Examen</h5>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Titulo)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Titulo)</dd>
+
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Descripcion)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Descripcion)</dd>
+
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Duracion)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Duracion) minutos</dd>
+
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.MateriaNombre)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.MateriaNombre)</dd>
+
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.FechaCreacion)</dt>
+                    <dd class="col-sm-8">@Model.FechaCreacion.ToString("dd/MM/yyyy HH:mm")</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0">Estadísticas</h5>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-6">Total de Preguntas</dt>
+                    <dd class="col-sm-6">@(Model.Preguntas?.Count ?? 0)</dd>
+
+                    <dt class="col-sm-6">Puntos Totales</dt>
+                    <dd class="col-sm-6">@(Model.Preguntas?.Sum(p => p.Puntos) ?? 0)</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header bg-info text-white">
+        <h5 class="mb-0">Preguntas</h5>
+    </div>
+    <div class="card-body">
+        @if (Model.Preguntas != null && Model.Preguntas.Any())
+        {
+            <div class="accordion" id="accordionPreguntas">
+                @for (int i = 0; i < Model.Preguntas.Count; i++)
+                {
+                    var pregunta = Model.Preguntas[i];
+                    <div class="accordion-item mb-3">
+                        <h2 class="accordion-header" id="heading@(i)">
+                            <button class="accordion-button @(i > 0 ? "collapsed" : "")" type="button" data-bs-toggle="collapse" data-bs-target="#collapse@(i)" aria-expanded="@(i == 0 ? "true" : "false")" aria-controls="collapse@(i)">
+                                <span class="fw-bold">Pregunta @(i + 1):</span> @pregunta.TextoPregunta <span class="ms-2 badge bg-primary">@pregunta.Puntos puntos</span>
+                            </button>
+                        </h2>
+                        <div id="collapse@(i)" class="accordion-collapse collapse @(i == 0 ? "show" : "")" aria-labelledby="heading@(i)" data-bs-parent="#accordionPreguntas">
+                            <div class="accordion-body">
+                                <h6>Opciones:</h6>
+                                <ul class="list-group">
+                                    @if (pregunta.Opciones != null && pregunta.Opciones.Any())
+                                    {
+                                        foreach (var opcion in pregunta.Opciones)
+                                        {
+                                            <li class="list-group-item @(opcion.EsCorrecta ? "list-group-item-success" : "")">
+                                                @opcion.TextoOpcion
+                                                @if (opcion.EsCorrecta)
+                                                {
+                                                    <span class="badge bg-success float-end">Correcta</span>
+                                                }
+                                            </li>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <li class="list-group-item">No hay opciones registradas para esta pregunta.</li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-info">
+                No hay preguntas registradas para este examen.
+            </div>
+        }
+    </div>
+</div>

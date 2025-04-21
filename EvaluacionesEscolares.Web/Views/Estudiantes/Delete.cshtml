@@ -1,0 +1,47 @@
+﻿@model EvaluacionesEscolares.Web.ViewModels.EstudianteViewModel
+@{
+    ViewData["Title"] = "Eliminar Estudiante";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Eliminar Estudiante</h1>
+    <a asp-action="Index" class="btn btn-secondary">
+        <i class="bi bi-arrow-left"></i> Volver
+    </a>
+</div>
+
+<div class="alert alert-danger">
+    <h4>¿Está seguro que desea eliminar este estudiante?</h4>
+    <p>Esta acción no se puede deshacer.</p>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Matricula)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Matricula)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Nombre)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Nombre)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Apellido)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Apellido)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Email)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Email)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.FechaNacimiento)</dt>
+            <dd class="col-sm-9">@Model.FechaNacimiento.ToString("dd/MM/yyyy")</dd>
+        </dl>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="btn btn-danger">
+                <i class="bi bi-trash"></i> Eliminar
+            </button>
+            <a asp-action="Index" class="btn btn-secondary">
+                <i class="bi bi-x-circle"></i> Cancelar
+            </a>
+        </form>
+    </div>
+</div>

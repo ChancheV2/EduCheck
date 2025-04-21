@@ -1,0 +1,75 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="welcome-section">
+    <div class="container">
+        <h1>EduCheck</h1>
+        <p>Supervisa, evalúa y mejora el rendimiento escolar con EduCheck: una plataforma todo-en-uno para estudiantes, exámenes y calificaciones.</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="bi bi-people"></i> Estudiantes</h5>
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <p>Gestiona la información de los estudiantes, incluyendo datos personales y académicos.</p>
+                    <a asp-controller="Estudiantes" asp-action="Index" class="btn btn-outline-primary mt-auto">
+                        <i class="bi bi-arrow-right"></i> Ir a Estudiantes
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0"><i class="bi bi-journal-text"></i> Exámenes</h5>
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <p>Crea y administra exámenes con preguntas, opciones y asignación por materias.</p>
+                    <a asp-controller="Examenes" asp-action="Index" class="btn btn-outline-success mt-auto">
+                        <i class="bi bi-arrow-right"></i> Ir a Exámenes
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0"><i class="bi bi-star"></i> Calificaciones</h5>
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <p>Registra y consulta las calificaciones de los estudiantes en los diferentes exámenes.</p>
+                    <a asp-controller="Calificaciones" asp-action="Index" class="btn btn-outline-info mt-auto">
+                        <i class="bi bi-arrow-right"></i> Ir a Calificaciones
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    <h5 class="mb-0"><i class="bi bi-info-circle"></i> Acerca del Sistema</h5>
+                </div>
+                <div class="card-body">
+                    <p>EduCheck es una plataforma diseñada para facilitar la gestión académica, permitiendo:</p>
+                    <ul>
+                        <li>Registro y seguimiento de estudiantes</li>
+                        <li>Creación y administración de exámenes</li>
+                        <li>Registro y consulta de calificaciones</li>
+                        <li>Generación de reportes de rendimiento</li>
+                        <li>Seguimiento del progreso académico</li>
+                    </ul>
+                    <p>Esta herramienta está diseñada para mejorar la eficiencia en la gestión educativa y proporcionar información valiosa para la toma de decisiones.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
