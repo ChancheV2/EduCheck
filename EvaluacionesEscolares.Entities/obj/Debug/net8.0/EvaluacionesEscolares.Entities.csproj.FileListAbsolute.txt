@@ -1,0 +1,11 @@
+C:\ProyectoFinal\EvaluacionesEscolares\EvaluacionesEscolares.Entities\bin\Debug\net8.0\EvaluacionesEscolares.Entities.deps.json
+C:\ProyectoFinal\EvaluacionesEscolares\EvaluacionesEscolares.Entities\bin\Debug\net8.0\EvaluacionesEscolares.Entities.dll
+C:\ProyectoFinal\EvaluacionesEscolares\EvaluacionesEscolares.Entities\bin\Debug\net8.0\EvaluacionesEscolares.Entities.pdb
+C:\ProyectoFinal\EvaluacionesEscolares\EvaluacionesEscolares.Entities\obj\Debug\net8.0\EvaluacionesEscolares.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\ProyectoFinal\EvaluacionesEscolares\EvaluacionesEscolares.Entities\obj\Debug\net8.0\EvaluacionesEscolares.Entities.AssemblyInfoInputs.cache
+C:\ProyectoFinal\EvaluacionesEscolares\EvaluacionesEscolares.Entities\obj\Debug\net8.0\EvaluacionesEscolares.Entities.AssemblyInfo.cs
+C:\ProyectoFinal\EvaluacionesEscolares\EvaluacionesEscolares.Entities\obj\Debug\net8.0\EvaluacionesEscolares.Entities.csproj.CoreCompileInputs.cache
+C:\ProyectoFinal\EvaluacionesEscolares\EvaluacionesEscolares.Entities\obj\Debug\net8.0\EvaluacionesEscolares.Entities.dll
+C:\ProyectoFinal\EvaluacionesEscolares\EvaluacionesEscolares.Entities\obj\Debug\net8.0\refint\EvaluacionesEscolares.Entities.dll
+C:\ProyectoFinal\EvaluacionesEscolares\EvaluacionesEscolares.Entities\obj\Debug\net8.0\EvaluacionesEscolares.Entities.pdb
+C:\ProyectoFinal\EvaluacionesEscolares\EvaluacionesEscolares.Entities\obj\Debug\net8.0\ref\EvaluacionesEscolares.Entities.dll
