@@ -1,0 +1,17 @@
+C:\ProyectoFinal\EvaluacionesEscolares\EvaluacionesEscolares.Core\bin\Debug\net8.0\EvaluacionesEscolares.Core.deps.json
+C:\ProyectoFinal\EvaluacionesEscolares\EvaluacionesEscolares.Core\bin\Debug\net8.0\EvaluacionesEscolares.Core.dll
+C:\ProyectoFinal\EvaluacionesEscolares\EvaluacionesEscolares.Core\bin\Debug\net8.0\EvaluacionesEscolares.Core.pdb
+C:\ProyectoFinal\EvaluacionesEscolares\EvaluacionesEscolares.Core\bin\Debug\net8.0\EvaluacionesEscolares.Data.dll
+C:\ProyectoFinal\EvaluacionesEscolares\EvaluacionesEscolares.Core\bin\Debug\net8.0\EvaluacionesEscolares.Entities.dll
+C:\ProyectoFinal\EvaluacionesEscolares\EvaluacionesEscolares.Core\bin\Debug\net8.0\EvaluacionesEscolares.Data.pdb
+C:\ProyectoFinal\EvaluacionesEscolares\EvaluacionesEscolares.Core\bin\Debug\net8.0\EvaluacionesEscolares.Entities.pdb
+C:\ProyectoFinal\EvaluacionesEscolares\EvaluacionesEscolares.Core\obj\Debug\net8.0\EvaluacionesEscolares.Core.csproj.AssemblyReference.cache
+C:\ProyectoFinal\EvaluacionesEscolares\EvaluacionesEscolares.Core\obj\Debug\net8.0\EvaluacionesEscolares.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\ProyectoFinal\EvaluacionesEscolares\EvaluacionesEscolares.Core\obj\Debug\net8.0\EvaluacionesEscolares.Core.AssemblyInfoInputs.cache
+C:\ProyectoFinal\EvaluacionesEscolares\EvaluacionesEscolares.Core\obj\Debug\net8.0\EvaluacionesEscolares.Core.AssemblyInfo.cs
+C:\ProyectoFinal\EvaluacionesEscolares\EvaluacionesEscolares.Core\obj\Debug\net8.0\EvaluacionesEscolares.Core.csproj.CoreCompileInputs.cache
+C:\ProyectoFinal\EvaluacionesEscolares\EvaluacionesEscolares.Core\obj\Debug\net8.0\Evaluaci.78ADD8C7.Up2Date
+C:\ProyectoFinal\EvaluacionesEscolares\EvaluacionesEscolares.Core\obj\Debug\net8.0\EvaluacionesEscolares.Core.dll
+C:\ProyectoFinal\EvaluacionesEscolares\EvaluacionesEscolares.Core\obj\Debug\net8.0\refint\EvaluacionesEscolares.Core.dll
+C:\ProyectoFinal\EvaluacionesEscolares\EvaluacionesEscolares.Core\obj\Debug\net8.0\EvaluacionesEscolares.Core.pdb
+C:\ProyectoFinal\EvaluacionesEscolares\EvaluacionesEscolares.Core\obj\Debug\net8.0\ref\EvaluacionesEscolares.Core.dll
