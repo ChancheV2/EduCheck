@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "EvaluacionesEscolares.API\\EvaluacionesEscolares.API.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "EvaluacionesEscolares.Web\\EvaluacionesEscolares.Web.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
